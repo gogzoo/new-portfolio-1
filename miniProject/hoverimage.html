@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .row1 {
+            width: 90%;
+            height: 300px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px 10px;
+        }
+
+        .row1>div {
+            position: relative;
+            overflow: hidden;
+            background-position: center;
+            background-size: cover;
+            transition: 0.3s;
+        }
+
+        .s1 {
+            background-image: url(./img2/1110_1.jpg);
+        }
+        .s2 {
+            background-image: url(./img2/1110_2.jpg);
+        }
+        .s3 {
+            background-image: url(./img2/1110_3.jpg);
+        }
+        .s4 {
+            background-image: url(./img2/1110_5.jpg);
+        }
+        .s5 {
+            background-image: url(./img2/1110_6.jpg);
+        }
+
+        .row1>div::after { /* 기존 사진 위에 사진 하나를 더 덧씌운다는 의미(::atfer가.) */
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: inherit;
+            background-size: cover;
+            transform-origin: center;
+
+            transition: transform .4s ease-in-out;
+            /* 사진이 키워졌을 경우 걸리는 시간 설정 */
+        }
+
+        .row1>div { /* 사진이 키워졌을 경우 사진 크기 설정(기본값: 1) */
+            &:hover {
+                &::after {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row1">
+        <div class="s1"></div>
+        <div class="s2"></div>
+        <div class="s3"></div>
+        <div class="s4"></div>
+        <div class="s5"></div>
+    </div>
+</body>
+</html>

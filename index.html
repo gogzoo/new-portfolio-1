@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- xeicon -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./20240228.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- AOS CSS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <div>
+        <button id="btnFunc1">레이아웃 경계선</button>
+
+        <script>
+            $("#btnFunc1").click(function(){
+                $("*").toggleClass("view-layout");
+            })
+        </script>
+    </div>
+
+    <header>
+        <h1><img src="./img/imcyan_logo_top.png" alt="아임시안 로고"></h1>
+        <ul class="h-menu-1">
+            <li><a href="">TOP NEWS</a></li>
+            <li><a href=""><span class="red">이은날</span> 시리즈</a></li>
+            <li><a href="">협업 게임</a></li>
+            <li><a href="">스마트폰 게임</a></li>
+            <li><a href="">과거 작품</a></li>
+            <li><a href="">LINE 스탬프</a></li>
+            <li><a href="">프로필</a></li>
+        </ul>
+    </header>
+
+    <div class="header-void"></div>
+
+    <main>
+        <div class="USER-INTERFACE">
+            <div class="start-fadeout"></div>
+            <h2 class="logo" data-aos="zoom-in-right" data-aos-duration="2000" data-aos-delay="500"><img src="./img/logo.png" alt="이은날 로고"></h2>
+            <h3 class="logo-h3"  data-aos="zoom-in-right" data-aos-duration="2000" data-aos-delay="1000">일상 침투 리얼 호러</h3>
+
+            <div class="purchase-btn">
+                <i class="xi-cart"></i>
+            </div>
+
+            <script>
+                $(window).ready(function(){
+                    $(".start-fadeout").fadeOut(2000);
+                })
+
+                //구매 버튼 관련 
+            </script>
+        </div>
+
+        <div class="BACKGROUND-START-CONTAINER">
+            <div class="shadow1"></div>
+            <div class="shadow2"></div>
+            <div class="shadow3"></div>
+
+            <div class="main-obj" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1500"><img src="./img/obj-1.png" alt="주인공"></div>
+
+            <div class="b1-main"></div>
+            <div class="slideWrapper b1" id="b1"><div></div></div>
+            <div class="slideWrapper b2" id="b2"><div></div></div>
+            <div class="slideWrapper b3" id="b3"><div></div></div>
+            <div class="b-sky"></div>
+        </div>
+
+        <script src="./backgroundSlide.js"></script>
+        <script>
+            // backgroundSlide("wrapper의 class", 속도, 방향);
+
+            backgroundSlide(".b1", 0.8, "right");
+            backgroundSlide(".b2", 0.2, "right");
+            backgroundSlide(".b3", 0.07, "right");
+
+        </script>
+    </main>
+
+    <section class="textbox-container sec-1">
+        <h3 data-aos="fade-up" data-aos-duration="1000">이은날 소개</h3>
+
+        <div class="textbox s1-t1" data-aos="fade-up" data-aos-duration="1000">
+            <h4>관련 동영상 조회수 2억회 돌파!</h4>
+            <p>
+                컬트적인 인기를 자랑하는 J-Horror 게임이<br>
+                드디어 2024. 2. 9.에 PlayStation4에 판매 개시되었습니다!<br>
+                호러 게임의 실황 동영상의 정평으로서, 수많은 유명 실황자나 Vtuber에 전송되고 있는 “이은날”. 본 작품은, 일상이 서서히 무서운 세계에 침식되어 가는 루프에 말려드는 체험을 할 수 있는 호러 게임입니다.
+            </p>
+        </div>
+
+        <div class="textbox s1-t2" data-aos="fade-up" data-aos-duration="1000">
+            <h4>조작은 “왼쪽에 진행될” 뿐</h4>
+            <p>
+                최대의 특징은, “왼쪽으로 나아갈 뿐이다”의 조작입니다. 그것뿐인데, 보통 일상이 점점 변이해, 공포에 침범되어 가는 연출에 매료되는 사람이 속출! J 호러의 묘미인, “축축히 소리없이 다가오는 공포”를 맛볼 수 있습니다.
+                당신은, 스틱을 왼쪽에 계속 넘어뜨려집니까……?
+            </p>
+        </div>
+
+        <div class="textbox s1-t3" data-aos="fade-up" data-aos-duration="1000">
+            <h4>응축된 공포 체험</h4>
+            <p>
+                호러 게임의 매력이 꽉 찬 시리즈 작품을 10개 수록 “이은날”은 1화 완결형의 단편 게임. 플레이 시간은 1개당 15분~30분과 단이, 응축된 농밀한 공포 체험이 차례차례로 당신을 덮칩니다.<br>
+                Nintendo Switch판으로는, 누구나가 아는 초인기 Vtuber과의 콜라보레이션 작품을 비롯한 단편이, 10개도 수록되고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <img src="./img/point.png" alt="구분선" class="hr-point">
+
+    <section class="textbox-container sec-2">
+        <h3 data-aos="fade-up" data-aos-duration="1000">게임플레이 소개</h3>
+
+        <div class="pict-textbox-l s2-t1">
+            <img src="./img/s1.png" alt="게임플레이1" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h4>여느때와 다르지 않은 하교길</h4>
+                <p>주인공은 그저 집에 가기 위해 전철을 매일 탔을 뿐입니다. 그런 주인공의 주변에 무슨 일이 벌어질까요?</p>
+            </div>
+        </div>
+
+        <div class="pict-textbox-r s2-t2">
+            <img src="./img/s2.png" alt="게임플레이2" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h4>점점 변해가는 주변</h4>
+                <p>하루 하루가 지나갈수록, 주변은 이상해져만 갑니다. 그런데, <span class="red">오늘의 다음날을 뭐라고 할까요?</span> 직접 알아보세요...</p>
+            </div>
+        </div>
+
+        <div class="pict-textbox-l s2-t3">
+            <img src="./img/s3.png" alt="게임플레이3" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h4>여기는 현실일지도... 모르겠네요</h4>
+                <p>인류는 번영하고 건물들이 난립하여, 본래 존재하던 영물의 영역이 희미해져버린 탓에, 알아차리지 못한 채 죄를 범하고 마는 일이 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="pict-textbox-r s2-t4">
+            <img src="./img/s4.png" alt="게임플레이4" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h4>주인공 잘못은 아닙니다</h4>
+                <p>그렇지만, 잘못이 있다고 한다면 운이 없게도 이곳으로 끌려들여온 거겠죠. 그것밖에 없습니다.</p>
+            </div>
+        </div>
+
+        <div class="pict-textbox-l s2-t5">
+            <img src="./img/s5.png" alt="게임플레이5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h4>내리실 문은 □□쪽 입니다</h4>
+                <p>이번 역은 <span class="red">키사라기 역</span> 입니다. 그리고 다시 시작할 수 없습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <img src="./img/point.png" alt="구분선" class="hr-point">
+
+    <section class="textbox-container sec-3">
+        <h3 data-aos="fade-up" data-aos-duration="1000">신 DLC 소개</h3>
+
+        <div class="textbox s3-t1" data-aos="fade-up" data-aos-duration="1000">
+            <h4>이은날 4: 폐쇄된 미래 DLC 릴리스</h4>
+            <p>그날의 사건을 생각하면서, 무거운 발걸음으로 귀가하고 있던 여학생은, 하교 도중에 있는 <span class="red">다리의 한가운데</span> 에서 문득 걸음을 멈춘다.「또 한 번, <span class="red">다시 하고 싶다</span>」라고 생각하고 있던 그녀는, 자연과 다리의 난간에 발걸음…
+            </p>
+
+            <div class="pic-list-box s3-p1">
+                <img src="./img/dlc1.png" alt="추가 콘텐츠 1" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                <img src="./img/dlc2.png" alt="추가 콘텐츠 2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                <img src="./img/dlc3.png" alt="추가 콘텐츠 3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            </div>
+        </div>
+
+        <div class="textbox s3-t2" data-aos="fade-up" data-aos-duration="1000">
+            <h4>이은날 5: 고양일괴기담 DLC 릴리스</h4>
+            <p>2월 22일 "냐-냐-냐"의 "고양일"을 기념해, "이은날" 시리즈에 주인공을 “고양이”로 한 작품이 등장! <span class="red">산책을</span> 즐기는, 이 일상을 서서히 침식해 간다… 지금까지 없었던 <span class="red">“고양이 × 공포 게임”</span>을 체감해 보세요.
+            </p>
+
+            <div class="pic-list-box s3-p2">
+                <img src="./img/dlc4.png" alt="추가 콘텐츠 4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                <img src="./img/dlc5.png" alt="추가 콘텐츠 5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="150">
+                <img src="./img/dlc6.png" alt="추가 콘텐츠 6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            </div>
+        </div>
+    </section>
+
+    <img src="./img/point.png" alt="구분선" class="hr-point">
+
+    <section class="textbox-container sec-4">
+        <h3 data-aos="fade-up" data-aos-duration="1000">이은날 시리즈</h3>
+        <p data-aos="fade-up" data-aos-duration="1000">2012년 12월에 시리즈 1작목이 공개된 이후, 오늘까지, 주인공·시츄에이션을 바꾸어 다양한「이은날」작품이 등장했습니다.<br>
+        재패니즈 호러의 매력이 듬뿍 담긴 본작에, 당신의 모습을 넣어보세요…
+        </p>
+
+        <div class="pics-list-container">
+            <ul>
+                <li>
+                    <div><img src="./img/ab1.png" alt="추가배너1"></div>
+                    <p>미마녀의 진실</p>
+                </li>
+                <li>
+                    <div><img src="./img/ab2.png" alt="추가배너2"></div>
+                    <p>꺼림칙한 밤의 식령품점</p>
+                </li>
+                <li>
+                    <div><img src="./img/ab3.png" alt="추가배너3"></div>
+                    <p>망자의 절규</p>
+                </li>
+                <li>
+                    <div><img src="./img/ab4.png" alt="추가배너4"></div>
+                    <p>사신 코로네</p>
+                </li>
+                <li>
+                    <div><img src="./img/ab5.png" alt="추가배너5"></div>
+                    <p>아이의 목소리</p>
+                </li>
+                <li>
+                    <div><img src="./img/ab6.png" alt="추가배너6"></div>
+                    <p>영각의 발판</p>
+                </li>
+            </ul>
+            <button>이은날 시리즈 더보기</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2012-2024 ImCyan / Vaka, Inc. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

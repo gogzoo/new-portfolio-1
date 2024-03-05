@@ -1,0 +1,634 @@
+@font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    /* 제목용 */
+}
+
+@font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    /* 메뉴용 */
+}
+
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    /* 본문용 */
+}
+
+:root {
+    --font-title: 'BookkMyungjo-Bd';
+    --font-para: 'IBMPlexSansKR-Regular';
+
+    --color-section4-red: #770007;
+}
+
+/* --------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+#btnFunc1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000000;
+}
+
+.view-layout {
+    box-shadow: 0 0 2px rgb(190, 190, 255) inset;
+}
+
+body {
+    background-color: black;
+}
+
+.hr-point {
+    display: block;
+    width: 2em;
+    margin: 1em auto;
+}
+
+.red {
+    color: red !important;
+}
+
+/* --------------------------------------------- */
+/* 일반적 속성 1. textbox */
+
+.textbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 1024px;
+    height: fit-content;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
+
+.textbox-container>h3 {
+    display: inline-block;
+    font-size: 3em;
+    color: red;
+    font-family: 'BookkMyungjo-Bd';
+    margin: 1em 0 1em 0;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 80%;
+    height: fit-content;
+    margin-bottom: 2em !important;
+}
+
+.textbox>h4 {
+    font-size: 1.8em;
+    color: red;
+    font-family: 'BookkMyungjo-Bd';
+    margin-bottom: 0.5em;
+    vertical-align: middle;
+}
+
+.textbox>h4::before {
+    position: relative;
+    top: -0.1em;
+
+    content: "";
+    display: inline-block;
+    width: 0.8em;
+    height: 0.9em;
+    background: url(./img/point.png);
+    background-size: cover;
+    background-position: center;
+    margin-right: 0.4em;
+    vertical-align: middle;
+}
+
+.textbox>p {
+    font-size: 1.3em;
+    color: white;
+    font-family: 'IBMPlexSansKR-Regular';
+    margin-left: 1em;
+}
+
+/* --------------------------------------------- */
+/* 이하 header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100px;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    padding: 0 3em;
+
+    z-index: 100000;
+}
+
+.header-void {
+    width: 100%;
+    height: 90px;
+}
+
+header img {
+    width: 200px;
+    cursor: pointer;
+}
+
+.h-menu-1 {
+    display: flex;
+}
+
+.h-menu-1>li {
+    margin: 0 0.7em;
+    transition: 0.3s;
+}
+
+.h-menu-1>li:hover {
+    scale: 1.05;
+}
+
+.h-menu-1 a {
+    color: white;
+    font-family: 'KimjungchulMyungjo-Bold';
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+.h-menu-1 a:hover {
+    color: red;
+    text-shadow: 0 0 20px rgb(255, 0, 0);
+}
+
+/* --------------------------------------------- */
+/* 움직이는 요소에 대한 일반적 속성 */
+
+main {
+    overflow: hidden;
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.USER-INTERFACE {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90vh;
+}
+
+.BACKGROUND-START-CONTAINER {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+}
+
+/* --------------------------------------------- */
+/* ui 화면 */
+
+.start-fadeout {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+    z-index: 11000;
+}
+
+.logo {
+    position: absolute;
+    top: 40%;
+    left: 23%;
+    
+    display: inline-block;
+    z-index: 10000;
+}
+
+.logo>img {
+    width: 450px;
+    /* 로고 크기 */
+}
+
+.logo-h3 {
+    position: absolute;
+    top: 71%;
+    left: 29%;
+
+    display: inline-block;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 1.8em;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+
+    z-index: 10000;
+}
+
+.purchase-btn {
+    position: fixed;
+    bottom: 1.5em;
+    left: 1.5em;
+
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5em 0.7em;
+    box-sizing: content-box;
+    background-color: rgba(76, 76, 76, 0.5);
+    backdrop-filter: blur(30px);
+    cursor: pointer;
+    border-radius: 10px;
+
+    z-index: 100000;
+}
+
+.purchase-btn>i {
+    color: white;
+    font-size: 2.5em;
+    transition: 0.3s;
+}
+
+.purchase-btn:hover {
+    &.purchase-btn>i {
+        color: red;
+    }
+}
+
+/* --------------------------------------------- */
+/* main의 배경구현 */
+
+.shadow1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 60%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+
+    z-index: 1100;
+}
+
+.shadow2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 20%;
+    height: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+
+    z-index: 1100;
+}
+
+.shadow3 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 20%;
+    height: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+
+    z-index: 1100;
+}
+
+.main-obj {
+    position: absolute;
+    right: 10%;
+    bottom: -10%;
+
+    z-index: 1050;
+}
+
+.main-obj>img {
+    width: 400px;
+}
+
+.b1-main {
+    position: relative;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/b3_main.png);
+    background-size: cover;
+    background-position: center;
+
+    z-index: 1000;
+}
+
+.b1 {
+    bottom: 12%;
+    left: 0;
+    height: 400px;
+    z-index: 900;
+}
+
+.b1>div {
+    width: 600px;
+    height: 300px;
+    background-image: url(./img/b1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.b2 {
+    bottom: 12%;
+    left: 0;
+    height: 400px;
+    z-index: 800;
+}
+
+.b2>div {
+    width: 600px;
+    height: 300px;
+    background-image: url(./img/b2.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.b3 {
+    bottom: 12%;
+    left: 0;
+    height: 400px;
+    z-index: 700;
+}
+
+.b3>div {
+    width: 600px;
+    height: 300px;
+    background-image: url(./img/b3.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.b-sky {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 90%;
+    background-image: url(./img/b-sky.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* --------------------------------------------- */
+/* 이하 section1 */
+
+/* 위에 textbox 만들어놓음 */
+
+/* --------------------------------------------- */
+/* 이하 section2 */
+
+.pict-textbox-l {
+    position: relative;
+
+    display: flex;
+
+    width: 80%;
+    height: 300px;
+    margin-bottom: 2em;
+}
+
+.pict-textbox-r {
+    position: relative;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    width: 80%;
+    height: 300px;
+    margin-bottom: 2em;
+}
+
+.pict-textbox-l>img {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    object-fit: contain;
+    width: 40%;
+    rotate: -5deg;
+    border-radius: 5px;
+}
+
+.pict-textbox-r>img {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    object-fit: contain;
+    width: 40%;
+    rotate: 5deg;
+    border-radius: 5px;
+}
+
+.pict-textbox-in {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2em;
+}
+
+.pict-textbox-in>h4 {
+    color: red;
+    font-family: var(--font-title);
+    font-size: 1.9em;
+    margin-bottom: 0.5em;
+}
+
+.pict-textbox-in>p {
+    color: white;
+    font-family: var(--font-para);
+    font-size: 1.4em;
+    padding-left: 1em;
+}
+
+/* --------------------------------------------- */
+/* 이하 section3 */
+
+.pic-list-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center center;
+
+    width: 100%;
+    height: 250px;
+}
+
+.pic-list-box>img {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pic-list-box>img:nth-child(1) {
+    rotate: -5deg;
+}
+.pic-list-box>img:nth-child(2) {
+    rotate: 5deg;
+}
+.pic-list-box>img:nth-child(3) {
+    rotate: -5deg;
+}
+
+/* --------------------------------------------- */
+/* 이하 section4 */
+
+.sec-4 {
+    width: 100%;
+    height: fit-content;
+
+    background: rgb(119,0,7);
+    background: linear-gradient(0deg, rgba(119,0,7,1) 80%, rgba(119,0,7,0) 100%);
+}
+
+.sec-4>h3 {
+    color: white;
+    text-shadow: 0 0 20px black;
+    margin-top: 3em;
+}
+
+.sec-4>p {
+    color: white;
+    font-family: var(--font-para);
+    text-align: center;
+    text-shadow: 0 0 20px black;
+}
+
+.pics-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 1024px;
+    height: fit-content;
+    border: 1px solid white;
+    margin-top: 4em;
+    margin-bottom: 60px;
+}
+
+.pics-list-container>ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center center;
+}
+
+.pics-list-container li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    width: 100%;
+    padding: 2em 1em;
+    overflow: hidden;
+}
+
+.pics-list-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90%;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.pics-list-container img {
+    width: 105%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pics-list-container img:hover {
+    scale: 1.1;
+}
+
+.pics-list-container p {
+    color: white;
+    font-family: var(--font-para);
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.pics-list-container>button {
+    width: fit-content;
+    height: fit-content;
+    margin: 1em 0 3em 0;
+    padding: 0.5em 1.7em;
+    color: white;
+    font-family: var(--font-para);
+    cursor: pointer;
+    background-color: black;
+    font-size: 1.1em;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+    transition: 0.3s;
+}
+
+.pics-list-container>button:hover {
+    scale: 1.05;
+}
+
+/* --------------------------------------------- */
+/* 이하 footer */
+
+footer {
+    position: relative;
+    top: -50px;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    width: 100%;
+    height: 100px;
+
+    background: black;
+    background: linear-gradient(0deg, black 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+footer>p {
+    color: white;
+    font-family: var(--font-title);
+    margin-bottom: 0.5em;
+}
