@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="./img/point.png">
+    <title>이은날: ReDesign</title>
 
     <!-- xeicon -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -11,7 +12,9 @@
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- 이 사이트 CSS -->
     <link rel="stylesheet" href="./20240228.css">
+    <link rel="stylesheet" href="./20240228_mobile.css">
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -22,7 +25,7 @@
         AOS.init();
     </script>
 
-    <div>
+    <!-- <div>
         <button id="btnFunc1">레이아웃 경계선</button>
 
         <script>
@@ -30,7 +33,7 @@
                 $("*").toggleClass("view-layout");
             })
         </script>
-    </div>
+    </div> -->
 
     <header>
         <h1><img src="./img/imcyan_logo_top.png" alt="아임시안 로고"></h1>
@@ -43,7 +46,55 @@
             <li><a href="">LINE 스탬프</a></li>
             <li><a href="">프로필</a></li>
         </ul>
+        <ul class="h-menu-m">
+            <li><i class="xi-bars"></i></li>
+        </ul>
     </header>
+
+    <div class="mobile-popup-menu mobile-hide">
+        <ul class="mobile-popup-menu-1">
+            <li><i class="xi-cart"></i><a href="">구매하기</a></li>
+            <li><i class="xi-arrow-left back_btn"></i></li>
+        </ul>
+        <ul class="mobile-popup-menu-2">
+            <li><a href="">TOP NEWS</a></li>
+            <li><a href=""><span class="red">이은날</span> 시리즈</a></li>
+            <li><a href="">협업 게임</a></li>
+            <li><a href="">스마트폰 게임</a></li>
+            <li><a href="">과거 작품</a></li>
+            <li><a href="">LINE 스탬프</a></li>
+            <li><a href="">프로필</a></li>
+        </ul>
+    </div>
+
+    <script>
+        let isMobilePopup = false;
+
+        $(".h-menu-m").click(function(){
+
+            if (isMobilePopup == false) {
+                $(".mobile-popup-menu").removeClass("mobile-hide");
+                $(".mobile-popup-menu").addClass("mobile-popup-menu-ani");
+
+                isMobilePopup = true;
+            }
+        })
+
+        $(".back_btn").click(function(){
+            
+            if (isMobilePopup == true) {
+                $(".mobile-popup-menu").addClass("mobile-sleep-menu-ani");
+
+                setTimeout(function(){
+                    $(".mobile-popup-menu").removeClass("mobile-sleep-menu-ani");
+                    $(".mobile-popup-menu").removeClass("mobile-popup-menu-ani");
+                    $(".mobile-popup-menu").addClass("mobile-hide");
+
+                    isMobilePopup = false;
+                }, 1000);
+            }
+        })
+    </script>
 
     <div class="header-void"></div>
 
@@ -53,16 +104,76 @@
             <h2 class="logo" data-aos="zoom-in-right" data-aos-duration="2000" data-aos-delay="500"><img src="./img/logo.png" alt="이은날 로고"></h2>
             <h3 class="logo-h3"  data-aos="zoom-in-right" data-aos-duration="2000" data-aos-delay="1000">일상 침투 리얼 호러</h3>
 
-            <div class="purchase-btn">
+            <div class="purchase-btn" id="purchaseBtn">
                 <i class="xi-cart"></i>
+                <ul class="purchase-btn-more hide">
+                    <li><a href="#" id="purSw" class="hide-a"></a></li>
+                    <li><a href="#" id="purPs" class="hide-a"></a></li>
+                    <li><a href="#" id="purPc" class="hide-a"></a></li>
+                </ul>
             </div>
 
             <script>
                 $(window).ready(function(){
-                    $(".start-fadeout").fadeOut(2000);
+                    setTimeout(()=>{
+                        $(".start-fadeout").fadeOut(2000);
+                    }, 500)
                 })
 
                 //구매 버튼 관련 
+                //62.38 ~ 445.38px
+
+                var isPurcaseBtnOn = false;
+
+                // 애니가 적용될 a들을 리스트로 만듬.
+                var anilist = $(".purchase-btn-more a");
+                // console.log(anilist);
+                // console.log(anilist[0]);
+                // console.log(anilist[1]);
+                // console.log(anilist[2]);
+
+                $("#purchaseBtn").click(function(){
+
+                    var inw = window.innerWidth;
+                    // console.log(inw);
+                    // console.log(typeof(inw));
+
+                    if(isPurcaseBtnOn == false) {
+
+                        if(inw < 1024) {
+                            $(".purchase-btn").animate({width: "245.38px"}, 150, function(){
+
+                            $(".purchase-btn-more a").addClass("button-animaton");
+                            $(".purchase-btn-more a").removeClass("button-animaton-hide");
+                            $(".purchase-btn-more").removeClass("hide");
+
+                            isPurcaseBtnOn = true;
+                            })
+
+                        }else if(inw >= 1024) {
+                            $(".purchase-btn").animate({width: "445.38px"}, 150, function(){
+
+                            $(".purchase-btn-more a").addClass("button-animaton");
+                            $(".purchase-btn-more a").removeClass("button-animaton-hide");
+                            $(".purchase-btn-more").removeClass("hide");
+
+                            isPurcaseBtnOn = true;
+                            })
+                        }
+
+                    }else if(isPurcaseBtnOn == true) {
+
+                        $(".purchase-btn-more a").addClass("button-animaton-hide");
+
+                        $(".purchase-btn").animate({width: "62.38px"}, 300, function(){
+                            $(".purchase-btn-more").addClass("hide");
+                            $(".purchase-btn-more a").removeClass("button-animaton");
+                            $(".purchase-btn-more a").addClass("hide-a");
+
+                            isPurcaseBtnOn = false;
+                        })
+                    }
+                })
             </script>
         </div>
 
@@ -128,7 +239,8 @@
         <div class="pict-textbox-l s2-t1">
             <img src="./img/s1.png" alt="게임플레이1" data-aos="fade-up" data-aos-duration="1000">
             <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <h4>여느때와 다르지 않은 하교길</h4>
+                <h4 class="wide">여느때와 다르지 않은 하교길</h4>
+                <h4 class="mobile">익숙한 하교길</h4>
                 <p>주인공은 그저 집에 가기 위해 전철을 매일 탔을 뿐입니다. 그런 주인공의 주변에 무슨 일이 벌어질까요?</p>
             </div>
         </div>
@@ -144,7 +256,8 @@
         <div class="pict-textbox-l s2-t3">
             <img src="./img/s3.png" alt="게임플레이3" data-aos="fade-up" data-aos-duration="1000">
             <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <h4>여기는 현실일지도... 모르겠네요</h4>
+                <h4 class="wide">여기는 현실일지도... 모르겠네요</h4>
+                <h4 class="mobile">이미 현실입니다</h4>
                 <p>인류는 번영하고 건물들이 난립하여, 본래 존재하던 영물의 영역이 희미해져버린 탓에, 알아차리지 못한 채 죄를 범하고 마는 일이 있습니다.</p>
             </div>
         </div>
@@ -160,7 +273,8 @@
         <div class="pict-textbox-l s2-t5">
             <img src="./img/s5.png" alt="게임플레이5" data-aos="fade-up" data-aos-duration="1000">
             <div class="pict-textbox-in" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <h4>내리실 문은 □□쪽 입니다</h4>
+                <h4 class="wide">내리실 문은 □□쪽 입니다</h4>
+                <h4 class="mobile">내□... □은 □입□다.</h4>
                 <p>이번 역은 <span class="red">키사라기 역</span> 입니다. 그리고 다시 시작할 수 없습니다.</p>
             </div>
         </div>
@@ -172,7 +286,7 @@
         <h3 data-aos="fade-up" data-aos-duration="1000">신 DLC 소개</h3>
 
         <div class="textbox s3-t1" data-aos="fade-up" data-aos-duration="1000">
-            <h4>이은날 4: 폐쇄된 미래 DLC 릴리스</h4>
+            <h4>이은날 4: 폐쇄된 미래 DLC</h4>
             <p>그날의 사건을 생각하면서, 무거운 발걸음으로 귀가하고 있던 여학생은, 하교 도중에 있는 <span class="red">다리의 한가운데</span> 에서 문득 걸음을 멈춘다.「또 한 번, <span class="red">다시 하고 싶다</span>」라고 생각하고 있던 그녀는, 자연과 다리의 난간에 발걸음…
             </p>
 
@@ -184,7 +298,7 @@
         </div>
 
         <div class="textbox s3-t2" data-aos="fade-up" data-aos-duration="1000">
-            <h4>이은날 5: 고양일괴기담 DLC 릴리스</h4>
+            <h4>이은날 5: 고양일괴기담 DLC</h4>
             <p>2월 22일 "냐-냐-냐"의 "고양일"을 기념해, "이은날" 시리즈에 주인공을 “고양이”로 한 작품이 등장! <span class="red">산책을</span> 즐기는, 이 일상을 서서히 침식해 간다… 지금까지 없었던 <span class="red">“고양이 × 공포 게임”</span>을 체감해 보세요.
             </p>
 

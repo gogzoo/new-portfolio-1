@@ -184,6 +184,14 @@ header img {
     text-shadow: 0 0 20px rgb(255, 0, 0);
 }
 
+.h-menu-m {
+    display: none;
+}
+
+.mobile-popup-menu {
+    display: none;
+}
+
 /* --------------------------------------------- */
 /* 움직이는 요소에 대한 일반적 속성 */
 
@@ -253,26 +261,49 @@ main {
     z-index: 10000;
 }
 
+/* 구매 버튼 관련 */
+
 .purchase-btn {
     position: fixed;
     bottom: 1.5em;
     left: 1.5em;
 
-    width: fit-content;
-    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 62.38px;
+    height: 62.38px;
     padding: 0.5em 0.7em;
-    box-sizing: content-box;
     background-color: rgba(76, 76, 76, 0.5);
     backdrop-filter: blur(30px);
     cursor: pointer;
     border-radius: 10px;
+    overflow: hidden;
 
     z-index: 100000;
+    transition: 0.3s;
+}
+
+.hide>i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    color: white;
+    font-size: 2.5em;
+    transition: 0.3s;
 }
 
 .purchase-btn>i {
+    position: absolute;
+    top: 50%;
+    left: 11.19px;
+    translate: 0 -50%;
+
     color: white;
-    font-size: 2.5em;
+    font-size: 40px;
     transition: 0.3s;
 }
 
@@ -281,6 +312,88 @@ main {
         color: red;
     }
 }
+
+.purchase-btn-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    height: fit-content;
+    margin-left: 55px;
+}
+
+.hide {
+    display: none;
+}
+
+.purchase-btn-more>li>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 0.5em;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.hide-a {
+    display: none;
+}
+
+.purchase-btn-more>li>a:hover {
+    scale: 1.1;
+}
+
+#purSw {
+    background-image: url(./img/logo_c1.png);
+    width: 40px;
+}
+#purPs {
+    background-image: url(./img/logo_c2.png);
+    width: 158px;
+}
+#purPc {
+    background-image: url(./img/logo_c3.png);
+    width: 121px;
+}
+
+.button-animaton {
+    animation: buttonAni 1s;
+}
+
+@keyframes buttonAni {
+    0% {
+        translate: -30px 0;
+        opacity: 0;
+    }
+
+    100% {
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+.button-animaton-hide {
+    animation: buttonAniHide 0.3s backwards;
+}
+
+@keyframes buttonAniHide {
+    0% {
+        translate: 0 0;
+        opacity: 1;
+    }
+
+    100% {
+        translate: -30px 0;
+        opacity: 0;
+    }
+}
+
+
 
 /* --------------------------------------------- */
 /* main의 배경구현 */
@@ -326,14 +439,14 @@ main {
 
 .main-obj {
     position: absolute;
-    right: 10%;
+    right: 0%;
     bottom: -10%;
 
     z-index: 1050;
 }
 
 .main-obj>img {
-    width: 400px;
+    width: 500px;
 }
 
 .b1-main {
@@ -471,6 +584,10 @@ main {
     font-family: var(--font-title);
     font-size: 1.9em;
     margin-bottom: 0.5em;
+}
+
+.pict-textbox-in>h4[class='mobile'] {
+    display: none;
 }
 
 .pict-textbox-in>p {
